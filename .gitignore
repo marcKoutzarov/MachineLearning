@@ -1,0 +1,18 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+ConsoleApp1/obj/project.assets.json
+ConsoleApp1/obj/Debug/netcoreapp2.1/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+ConsoleApp1/obj/Debug/netcoreapp2.1/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+ConsoleApp1/obj/Debug/netcoreapp2.1/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+ConsoleApp1/obj/Debug/netcoreapp2.1/ConsoleApp1.csproj.FileListAbsolute.txt
+ConsoleApp1/obj/Debug/netcoreapp2.1/ConsoleApp1.AssemblyInfo.cs
+ConsoleApp1/obj/ConsoleApp1.csproj.nuget.g.targets
+ConsoleApp1/obj/ConsoleApp1.csproj.nuget.g.props
+ConsoleApp1/bin/Debug/netcoreapp2.1/iris.txt
+ConsoleApp1/bin/Debug/netcoreapp2.1/KYCRiskModel.csv
+ConsoleApp1/bin/Debug/netcoreapp2.1/ConsoleApp1.runtimeconfig.json
+ConsoleApp1/bin/Debug/netcoreapp2.1/ConsoleApp1.runtimeconfig.dev.json
+ConsoleApp1/bin/Debug/netcoreapp2.1/ConsoleApp1.deps.json
+.vs/
+ConsoleApp1/bin/Debug/netcoreapp2.1/Trainers/TrainingsModel.csv,ConsoleApp1/bin/Debug/netcoreapp2.1/MulticlassClassification_trainedModel.zip,ConsoleApp1/bin/Debug/netcoreapp2.1/KycRiskClassification.runtimeconfig.json,ConsoleApp1/bin/Debug/netcoreapp2.1/KycRiskClassification.runtimeconfig.dev.json,ConsoleApp1/bin/Debug/netcoreapp2.1/KycRiskClassification.deps.json
+ConsoleApp1/obj/
+ConsoleApp1/bin/
