@@ -15,10 +15,16 @@ namespace KycRiskClassification
             MLContext mlContext = new MLContext();
 
             Trainers.KycRisksMulticlassClassification T = new Trainers.KycRisksMulticlassClassification();
-
             var model = T.TrainModel(mlContext);
-
             T.SaveModel(mlContext, model);
+
+
+
+
+
+
+
+
 
             Console.WriteLine("--Model Metrics--");
             Console.WriteLine($"Clustering.AvgMinScore: { T.TrainedModelMetrics.Clustering.AvgMinScore}");
@@ -31,13 +37,18 @@ namespace KycRiskClassification
             Console.WriteLine($"TopK                  : { T.TrainedModelMetrics.MultiClassClassifier.TopK}");
             Console.WriteLine($"TopKAccuracy          : { T.TrainedModelMetrics.MultiClassClassifier.TopKAccuracy}");
             Console.WriteLine("");
-
             Console.WriteLine("Running Scenarios.......");
             Console.WriteLine("");
 
+
+
+
+
+
+            ModelPrediction prediction; 
+
             Console.WriteLine("Testing the trained model: TestScenarios.Customer_NoIdDocument");
-            var prediction = model.CreatePredictionEngine<ModelClass, ModelPrediction>(mlContext).Predict(TestScenarios.Customer_NoIdDocument());
-            var d = prediction.Distances;
+            prediction =T.Predict (mlContext ,model , TestScenarios.Customer_NoIdDocument());
             Console.WriteLine($"Predicted riskFactor is: {prediction.PredictedLabels}");
             Console.WriteLine("--Prediction Metrics--");
             for (int i = 0; i < prediction.Distances.Length; ++i)
@@ -48,8 +59,7 @@ namespace KycRiskClassification
             Console.WriteLine("");
 
             Console.WriteLine("Testing the trained model: TestScenarios.CustomerAllDataChecked");
-            prediction = model.CreatePredictionEngine<ModelClass, ModelPrediction>(mlContext).Predict(TestScenarios.CustomerAllDataChecked());
-            d = prediction.Distances;
+            prediction = T.Predict(mlContext, model, TestScenarios.CustomerAllDataChecked());
             Console.WriteLine($"Predicted riskFactor is: {prediction.PredictedLabels}");
             Console.WriteLine("--Prediction Metrics--");
             for (int i = 0; i < prediction.Distances.Length; ++i)
@@ -60,8 +70,7 @@ namespace KycRiskClassification
             Console.WriteLine("");
 
             Console.WriteLine("Testing the trained model: TestScenarios.Customer_NoLastNameCheck");
-            prediction = model.CreatePredictionEngine<ModelClass, ModelPrediction>(mlContext).Predict(TestScenarios.Customer_NoLastNameCheck());
-            d = prediction.Distances;
+            prediction = T.Predict(mlContext, model, TestScenarios.Customer_NoLastNameCheck());
             Console.WriteLine($"Predicted riskFactor is: {prediction.PredictedLabels}");
             Console.WriteLine("--Prediction Metrics--");
             for (int i = 0; i < prediction.Distances.Length; ++i)
@@ -72,8 +81,7 @@ namespace KycRiskClassification
             Console.WriteLine("");
 
             Console.WriteLine("Testing the trained model: TestScenarios.Customer_NoWatchListCheck");
-            prediction = model.CreatePredictionEngine<ModelClass, ModelPrediction>(mlContext).Predict(TestScenarios.Customer_NoWatchListCheck());
-            d = prediction.Distances;
+            prediction = T.Predict(mlContext, model, TestScenarios.Customer_NoWatchListCheck());
             Console.WriteLine($"Predicted riskFactor is: {prediction.PredictedLabels}");
             Console.WriteLine("--Prediction Metrics--");
             for (int i = 0; i < prediction.Distances.Length; ++i)
@@ -84,8 +92,7 @@ namespace KycRiskClassification
             Console.WriteLine("");
 
             Console.WriteLine("Testing the trained model: TestScenarios.Customer_OnlyEmailAndPhoneCheck");
-            prediction = model.CreatePredictionEngine<ModelClass, ModelPrediction>(mlContext).Predict(TestScenarios.Customer_OnlyEmailAndPhoneCheck());
-            d = prediction.Distances;
+            prediction = T.Predict(mlContext, model, TestScenarios.Customer_OnlyEmailAndPhoneCheck());
             Console.WriteLine($"Predicted riskFactor is: {prediction.PredictedLabels}");
             Console.WriteLine("--Prediction Metrics--");
             for (int i = 0; i < prediction.Distances.Length; ++i)
@@ -96,8 +103,7 @@ namespace KycRiskClassification
             Console.WriteLine("");
 
             Console.WriteLine("Testing the trained model: TestScenarios.Customer_OnlyEmailCheck");
-            prediction = model.CreatePredictionEngine<ModelClass, ModelPrediction>(mlContext).Predict(TestScenarios.Customer_OnlyEmailCheck());
-            d = prediction.Distances;
+            prediction = T.Predict(mlContext, model, TestScenarios.Customer_OnlyEmailCheck());
             Console.WriteLine($"Predicted riskFactor is: {prediction.PredictedLabels}");
             Console.WriteLine("--Prediction Metrics--");
             for (int i = 0; i < prediction.Distances.Length; ++i)
@@ -108,8 +114,7 @@ namespace KycRiskClassification
             Console.WriteLine("");
 
             Console.WriteLine("Testing the trained model: TestScenarios.Customer_Customer_SanctionListHit");
-            prediction = model.CreatePredictionEngine<ModelClass, ModelPrediction>(mlContext).Predict(TestScenarios.Customer_SanctionListHit());
-            d = prediction.Distances;
+            prediction = T.Predict(mlContext, model, TestScenarios.Customer_SanctionListHit());
             Console.WriteLine($"Predicted riskFactor is: {prediction.PredictedLabels}");
             Console.WriteLine("--Prediction Metrics--");
             for (int i = 0; i < prediction.Distances.Length; ++i)
@@ -120,8 +125,7 @@ namespace KycRiskClassification
             Console.WriteLine("");
 
             Console.WriteLine("Testing the trained model: TestScenarios.Customer_WatchListHit");
-            prediction = model.CreatePredictionEngine<ModelClass, ModelPrediction>(mlContext).Predict(TestScenarios.Customer_WatchListHit());
-            d = prediction.Distances;
+            prediction = T.Predict(mlContext, model, TestScenarios.Customer_WatchListHit());
             Console.WriteLine($"Predicted riskFactor is: {prediction.PredictedLabels}");
             Console.WriteLine("--Prediction Metrics--");
             for (int i = 0; i < prediction.Distances.Length; ++i)
@@ -132,8 +136,7 @@ namespace KycRiskClassification
             Console.WriteLine("");
 
             Console.WriteLine("Testing the trained model: TestScenarios.Customer_PepListHit");
-            prediction = model.CreatePredictionEngine<ModelClass, ModelPrediction>(mlContext).Predict(TestScenarios.Customer_PepListHit());
-            d = prediction.Distances;
+            prediction = T.Predict(mlContext, model, TestScenarios.Customer_PepListHit());
             Console.WriteLine($"Predicted riskFactor is: {prediction.PredictedLabels}");
             Console.WriteLine("--Prediction Metrics--");
             for (int i = 0; i < prediction.Distances.Length; ++i)

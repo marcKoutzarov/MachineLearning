@@ -96,6 +96,12 @@ namespace KycRiskClassification.Trainers
             return model;
         }
 
+        public ModelPrediction Predict(MLContext mlContext, ITransformer TrainedModel, ModelClass Sample) {
+            var prediction = TrainedModel.CreatePredictionEngine<ModelClass, ModelPrediction>(mlContext).Predict(Sample);
+            return prediction;
+        }
+        
+        
         private ModelMetrics LoadMetrics(ClusteringMetrics cM, MultiClassClassifierMetrics mCCM) {
             var m = new ModelMetrics();
 

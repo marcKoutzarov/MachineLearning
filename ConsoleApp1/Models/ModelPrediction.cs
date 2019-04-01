@@ -10,6 +10,8 @@ namespace KycRiskClassification.Models
         [ColumnName("PredictedLabel")]
         public string PredictedLabels;
 
+       
+
         [ColumnName("Score")]
         public float[] Distances;
     }
