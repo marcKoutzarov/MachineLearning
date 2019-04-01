@@ -16,3 +16,5 @@ ConsoleApp1/bin/Debug/netcoreapp2.1/ConsoleApp1.deps.json
 ConsoleApp1/bin/Debug/netcoreapp2.1/Trainers/TrainingsModel.csv,ConsoleApp1/bin/Debug/netcoreapp2.1/MulticlassClassification_trainedModel.zip,ConsoleApp1/bin/Debug/netcoreapp2.1/KycRiskClassification.runtimeconfig.json,ConsoleApp1/bin/Debug/netcoreapp2.1/KycRiskClassification.runtimeconfig.dev.json,ConsoleApp1/bin/Debug/netcoreapp2.1/KycRiskClassification.deps.json
 ConsoleApp1/obj/
 ConsoleApp1/bin/
+KycRiskClassification/bin/
+KycRiskClassification/obj/
